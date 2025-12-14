@@ -1,0 +1,1639 @@
+{
+	"info": {
+		"_postman_id": "5feee3fb-08b2-4676-8a0a-f426f49d1bbd",
+		"name": "AW API Coding Test - Shorten - Sachin",
+		"description": "## IMPORTANT\n\nPlease pay attention to the **API Specification** and implement as instructed.\n\n### Request Structure\n\nThe request payload/body must match as the API Specification.\n\n### Response Structure\n\n- All the endpoints must return JSON response\n    \n- The response examples included in this documentation are for successful requests only.\n    \n- For any other requests that fails, **please return appropriate response with appropriate response code.**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21884954"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Sign-Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"john\", // Required\r\n    \"lastName\": \"doe\" , // Required\r\n    \"email\": \"jon@gmail.com\", // Required\r\n    \"password\": \"11111111\", // Required\r\n    \"country\": \"Nepal\" // Optional\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/users/signup",
+							"protocol": "{{SCHEME}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"{{VERSION}}",
+								"users",
+								"signup"
+							]
+						},
+						"description": "Create new user."
+					},
+					"response": [
+						{
+							"name": "Sing Up Validation Issue",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"john\", // Required\r\n    \"lastName\":null , // Required\r\n    \"email\": \"\", // Required\r\n    \"password\": \"\", // Required\r\n    \"country\": \"Nepal\", // Optional\r\n    \"aa\": 233\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/users/signup",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"users",
+										"signup"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "efcb1fbe-a9b6-4d23-802b-e8b1ce65edac"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.059534"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, unpermitted_parameters.action_controller;dur=0.04, sql.active_record;dur=16.17, transaction.active_record;dur=10.70, process_action.action_controller;dur=49.49"
+								},
+								{
+									"key": "content-length",
+									"value": "121"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User creation failed\",\n    \"errors\": [\n        \"Password can't be blank\",\n        \"Email can't be blank\",\n        \"Last name can't be blank\"\n    ]\n}"
+						},
+						{
+							"name": "Successful Sign Up",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"john\", // Required\r\n    \"lastName\": \"doe\" , // Required\r\n    \"email\": \"jon@gmail.com\", // Required\r\n    \"password\": \"11111111\", // Required\r\n    \"country\": \"Nepal\" // Optional\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/users/signup",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"users",
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"e832205ac0e3cad9a328bca79566017f\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "6ee8b621-1a74-4362-b560-3fcddc50882d"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.505977"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.03, sql.active_record;dur=10.84, transaction.active_record;dur=14.99, process_action.action_controller;dur=496.40"
+								},
+								{
+									"key": "content-length",
+									"value": "422"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"id\": 18,\n        \"type\": \"users\",\n        \"attributes\": {\n            \"token\": \"Bearer eyJhY2Nlc3MtdG9rZW4iOiJSMlpXQUlNRXEyeGp2WUpiUFljYXh3IiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6IlhCSWxmUGplYjEwdkpyRW4tNG1VcHciLCJleHBpcnkiOiIxNzY2OTM5NzExIiwidWlkIjoiam9uQGdtYWlsLmNvbSJ9\",\n            \"email\": \"jon@gmail.com\",\n            \"name\": \"john doe\",\n            \"country\": \"Nepal\",\n            \"createdAt\": \"2025-12-14T16:35:10Z\",\n            \"updatedAt\": \"2025-12-14T16:35:11Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Sign-In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"auth\": {\r\n        \"email\": \"jon@gmail.com\", // Required\r\n        \"password\": \"11111111\" // Required\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/auth/signin",
+							"protocol": "{{SCHEME}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"{{VERSION}}",
+								"auth",
+								"signin"
+							]
+						},
+						"description": "API Endpoint to authenticate and obtain authentication token."
+					},
+					"response": [
+						{
+							"name": "Sign In Validation issue",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"auth\": {\r\n        \"email\": \"\", // Required\r\n        \"password\": \"11111111\" // Required\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/auth/signin",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "8b389d9b-00fd-465d-a38a-589123b7477a"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.025944"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, process_action.action_controller;dur=1.16"
+								},
+								{
+									"key": "content-length",
+									"value": "73"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Sign in Failed\",\n    \"errors\": [\n        \"Email and password are required\"\n    ]\n}"
+						},
+						{
+							"name": "Invalid credential",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"auth\": {\r\n        \"email\": \"john@gmail.com\", // Required\r\n        \"password\": \"11111111\" // Required\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/auth/signin",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "dd8fa54f-e17a-4ffa-b07b-b3d2130aac64"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.027045"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=0.82, process_action.action_controller;dur=16.68"
+								},
+								{
+									"key": "content-length",
+									"value": "61"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Sign in failed\",\n    \"errors\": [\n        \"Invalid Credentials\"\n    ]\n}"
+						},
+						{
+							"name": "successful sign in",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"auth\": {\r\n        \"email\": \"jon@gmail.com\", // Required\r\n        \"password\": \"11111111\" // Required\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/auth/signin",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"f3c8123995838b131bbb8429fb6ce0b1\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "d7fc6c90-9829-4b0a-bff0-e5d2c96567ff"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.477169"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=5.04, instantiation.active_record;dur=0.15, transaction.active_record;dur=4.88, process_action.action_controller;dur=467.74"
+								},
+								{
+									"key": "content-length",
+									"value": "419"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Signed in successfully\",\n    \"data\": {\n        \"id\": 18,\n        \"type\": \"users\",\n        \"attributes\": {\n            \"token\": \"Bearer eyJhY2Nlc3MtdG9rZW4iOiJCQXN2WXdOeDNpRnpuTlNFWldtdWJnIiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6IkRPNGo5OTBFY09Bc2pZZ2d6STc5eGciLCJleHBpcnkiOiIxNzY2OTM5ODI0IiwidWlkIjoiam9uQGdtYWlsLmNvbSJ9\",\n            \"email\": \"jon@gmail.com\",\n            \"name\": \"john doe\",\n            \"country\": \"Nepal\",\n            \"createdAt\": \"2025-12-14T16:35:10Z\",\n            \"updatedAt\": \"2025-12-14T16:37:04Z\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Content",
+			"item": [
+				{
+					"name": "Create Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhY2Nlc3MtdG9rZW4iOiJCQXN2WXdOeDNpRnpuTlNFWldtdWJnIiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6IkRPNGo5OTBFY09Bc2pZZ2d6STc5eGciLCJleHBpcnkiOiIxNzY2OTM5ODI0IiwidWlkIjoiam9uQGdtYWlsLmNvbSJ9",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"My first content\", // Required\r\n    \"body\": \"very very long body\" // Required\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents",
+							"protocol": "{{SCHEME}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"{{VERSION}}",
+								"contents"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Authentication Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"aaaa\", // Required\r\n    \"body\": \"teftyeftef\" // Required\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"contents"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "cd7840d9-09c4-4689-a132-d2037e5ebb72"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.009441"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, halted_callback.action_controller;dur=0.01, process_action.action_controller;dur=0.79"
+								},
+								{
+									"key": "content-length",
+									"value": "64"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"You need to sign in or sign up before continuing.\"\n    ]\n}"
+						},
+						{
+							"name": "Validation issue",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"aaaMy first content that exceeds 50 charactersssssssssssssssssssssssssssssssssssssss\", // Required\r\n    \"body\": \"very very long body\" // Required\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"contents"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "access-token",
+									"value": "BAsvYwNx3iFznNSEZWmubg"
+								},
+								{
+									"key": "token-type",
+									"value": "Bearer"
+								},
+								{
+									"key": "client",
+									"value": "DO4j990EcOAsjYggzI79xg"
+								},
+								{
+									"key": "expiry",
+									"value": "1766939824"
+								},
+								{
+									"key": "uid",
+									"value": "jon@gmail.com"
+								},
+								{
+									"key": "authorization",
+									"value": "Bearer eyJhY2Nlc3MtdG9rZW4iOiJCQXN2WXdOeDNpRnpuTlNFWldtdWJnIiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6IkRPNGo5OTBFY09Bc2pZZ2d6STc5eGciLCJleHBpcnkiOiIxNzY2OTM5ODI0IiwidWlkIjoiam9uQGdtYWlsLmNvbSJ9"
+								},
+								{
+									"key": "set-cookie",
+									"value": "_session_id=AhFf2QjQdXhM%2BfXUpY4wrDu2HiVjVrUjwPrdpa9hQB5dDUnh1ayL2coLQXrjc%2BkQ%2F5Mpw%2B%2BElqkibVQxmcTzq6DUHmQ%2FqhTEYaI6RkXRcSlaSyRwBM0pEPZ%2F7X3xgZ3Jrup3qPIsIkb9oOcuED%2F1YIjEa2RqGzs9O0vRnrvy2QV7M7vGh1hOEhcxTV2mRTdYc3F9GE1%2BW%2BOUL7nRwNt2E%2FnBBmGR5dr%2FnvRz5GKri%2FghKKDYK1JQxywP%2FB84NQKGQ1XAI1vX%2BYq7iRO62xjeWOxfOg%3D%3D--OZfOkClvGcgVI%2Bac--FI7jB%2Be%2FbiDRSKcd2mQm4Q%3D%3D; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "a06788a0-895f-4856-85cd-6fb4c5cc92ed"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.115593"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=1.12, instantiation.active_record;dur=0.23, process_action.action_controller;dur=104.02"
+								},
+								{
+									"key": "content-length",
+									"value": "95"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Content creation failed\",\n    \"errors\": [\n        \"Title is too long (maximum is 50 characters)\"\n    ]\n}"
+						},
+						{
+							"name": "Successful content creation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"My first content\", // Required\r\n    \"body\": \"very very long body\" // Required\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"contents"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "access-token",
+									"value": "BAsvYwNx3iFznNSEZWmubg"
+								},
+								{
+									"key": "token-type",
+									"value": "Bearer"
+								},
+								{
+									"key": "client",
+									"value": "DO4j990EcOAsjYggzI79xg"
+								},
+								{
+									"key": "expiry",
+									"value": "1766939824"
+								},
+								{
+									"key": "uid",
+									"value": "jon@gmail.com"
+								},
+								{
+									"key": "authorization",
+									"value": "Bearer eyJhY2Nlc3MtdG9rZW4iOiJCQXN2WXdOeDNpRnpuTlNFWldtdWJnIiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6IkRPNGo5OTBFY09Bc2pZZ2d6STc5eGciLCJleHBpcnkiOiIxNzY2OTM5ODI0IiwidWlkIjoiam9uQGdtYWlsLmNvbSJ9"
+								},
+								{
+									"key": "set-cookie",
+									"value": "_session_id=FqveDneSt2YhSHGuV81iq4agI2VFBK0YBrFsLWiM20bsVmjx3U7eohsVJ5S5NVFtsHT%2Bk5qRVasNFMw4z6sw%2BHjFu1Y7wAzi1j2IJkjJIk0HzWH87mWOk0Lq14xknlfEPFQsu%2B%2FbiAB0tXRjWyW22y%2Be%2FOHAO6o4mKVE9bAhpgOx73VUM3PEhyRVblKbO4eTkOemRPuwUzrQk7szcgR9rEMG%2BXkDkp2fG78TcSwK3YolNRUlda6BkcC9Yl4XfVwOii0EqxCpFwcqAdweGDbGlwvYEA%3D%3D--hyLASlPU8X1uIAuG--YM3yqex2GIGQxNCbCll3mw%3D%3D; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"41d1d6882898d740100b981a7620464a\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "e85b965f-a9ea-41ec-8b81-cb73cba657c1"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.027853"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=5.83, instantiation.active_record;dur=0.23, transaction.active_record;dur=5.46, process_action.action_controller;dur=17.92"
+								},
+								{
+									"key": "content-length",
+									"value": "217"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Content created successfully\",\n    \"data\": {\n        \"id\": 14,\n        \"type\": \"content\",\n        \"attributes\": {\n            \"title\": \"My first content\",\n            \"body\": \"very very long body\",\n            \"createdAt\": \"2025-12-14T16:39:46Z\",\n            \"updatedAt\": \"2025-12-14T16:39:46Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Contents",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhY2Nlc3MtdG9rZW4iOiJxWHpDeHJDZHJtNXBnM01Cb2ZSSEJBIiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6IkFvQ1RVSmhwM3p2MVh2cXZ2eXVPUVEiLCJleHBpcnkiOiIxNzY2OTI3MTA4IiwidWlkIjoic3NzM3NzczMzQGdtYWlsLmNvbSJ9",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents?page=1&per_page=5",
+							"protocol": "{{SCHEME}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"{{VERSION}}",
+								"contents"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List contents",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents?page=2&per_page=5",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"contents"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2"
+										},
+										{
+											"key": "per_page",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "access-token",
+									"value": "qXzCxrCdrm5pg3MBofRHBA"
+								},
+								{
+									"key": "token-type",
+									"value": "Bearer"
+								},
+								{
+									"key": "client",
+									"value": "AoCTUJhp3zv1XvqvvyuOQQ"
+								},
+								{
+									"key": "expiry",
+									"value": "1766927108"
+								},
+								{
+									"key": "uid",
+									"value": "sss3sss33@gmail.com"
+								},
+								{
+									"key": "authorization",
+									"value": "Bearer eyJhY2Nlc3MtdG9rZW4iOiJxWHpDeHJDZHJtNXBnM01Cb2ZSSEJBIiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6IkFvQ1RVSmhwM3p2MVh2cXZ2eXVPUVEiLCJleHBpcnkiOiIxNzY2OTI3MTA4IiwidWlkIjoic3NzM3NzczMzQGdtYWlsLmNvbSJ9"
+								},
+								{
+									"key": "set-cookie",
+									"value": "_session_id=3kPhTmE5e5P60JY7X5Y8iA5ZUqgNq4NlFOaYOMxfFDLN61cwFX7xvFlqmbtZmuLge%2FqrpozbadIQyuIhLoJbSkGHUXZxsWO8SKj3NxcFiZAi9guSfll9BBzihp1hLrKupzoFbWMXWBdGUst%2B2oCuvW4HygHYnJvc9og9q9%2FpX%2F5gLEZpzggBz8PKZ0zCyEmJZ9Crx5yp8VueT6oezCXnN%2FHbjunFwQXNiwGMhhoNPe7ZHeq7eXZngR3WlmoJl%2F7awxMcEX2NsGDc5a0LWfqYKWcLcA%3D%3D--ML8exCEH5pL8yFQj--DFkFm7T61vLKvW5hI7dhLg%3D%3D; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"b16717eac6263c353fb7f108816d459c\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "a7d9dc7b-4c33-4e6d-ad46-22a9ecc0bbba"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.026058"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.03, sql.active_record;dur=1.99, instantiation.active_record;dur=0.40, process_action.action_controller;dur=15.45"
+								},
+								{
+									"key": "content-length",
+									"value": "833"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Contents fetched successfully\",\n    \"data\": [\n        {\n            \"id\": 9,\n            \"type\": \"content\",\n            \"attributes\": {\n                \"title\": \"updasted!\",\n                \"body\": \"updated2\",\n                \"createdAt\": \"2025-12-14T13:22:01Z\",\n                \"updatedAt\": \"2025-12-14T16:08:51Z\"\n            }\n        },\n        {\n            \"id\": 7,\n            \"type\": \"content\",\n            \"attributes\": {\n                \"title\": \"aaaa\",\n                \"body\": \"teftyeftef\",\n                \"createdAt\": \"2025-12-14T13:17:12Z\",\n                \"updatedAt\": \"2025-12-14T13:17:12Z\"\n            }\n        },\n        {\n            \"id\": 5,\n            \"type\": \"content\",\n            \"attributes\": {\n                \"title\": \"aaaa\",\n                \"body\": \"teftyeftef\",\n                \"createdAt\": \"2025-12-14T13:17:09Z\",\n                \"updatedAt\": \"2025-12-14T13:17:09Z\"\n            }\n        },\n        {\n            \"id\": 4,\n            \"type\": \"content\",\n            \"attributes\": {\n                \"title\": \"aaaa\",\n                \"body\": \"teftyeftef\",\n                \"createdAt\": \"2025-12-14T13:17:06Z\",\n                \"updatedAt\": \"2025-12-14T13:17:06Z\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"type\": \"content\",\n            \"attributes\": {\n                \"title\": \"aaaa\",\n                \"body\": \"teftyeftef\",\n                \"createdAt\": \"2025-12-14T13:17:02Z\",\n                \"updatedAt\": \"2025-12-14T13:17:02Z\"\n            }\n        }\n    ],\n    \"pagination\": {\n        \"page\": 2,\n        \"per_page\": 5,\n        \"count\": 10\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhY2Nlc3MtdG9rZW4iOiJTT2xqS0ZlV1RhOHNoZUZUZHJhb3V3IiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6Im41d09vczYtamJXWURjNDBLSG1Xa3ciLCJleHBpcnkiOiIxNzY2OTI4MTAxIiwidWlkIjoiZGRzZHNkZGRAc3NzLmNvbSJ9",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"updated!\",\r\n    \"body\": \"updated2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents/99",
+							"protocol": "{{SCHEME}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"{{VERSION}}",
+								"contents",
+								"99"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Content update unauthorized",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"updated!\",\r\n    \"body\": \"updated2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents/14",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"contents",
+										"14"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "set-cookie",
+									"value": "_session_id=bwNuKYqqYzaD%2Fyp9bNNmgureOttn2VcDALw33dCmko520z0%2F2qeYFs4wLOq8VdPl8d9d65dAai8w59Ree3N6p15Gc4RjhkRRVdQK77RE1Q%2B1EyDM3rk5JhV7txrtuaVn1Adf79AFU2nqyeOcOcGoDCxIpb6zb9LFgVfeLA1v36cRReNT3K4lAd9NOXcSOn3IpJh4tRpwohYbRvKq7tIcwLauPNDzbtETA4v%2BKiGpW3HIoYfOTecnxxml7LF%2B3sgFJqkv%2B9Pp7g29BZGboRhLiOcy8w%3D%3D--qNHw7LBxoNQ53%2BAA--zjrL2%2BUfNjHXNd9APyycUg%3D%3D; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "89c79094-941c-485a-a208-ce5839d54ffe"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.016889"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=0.95, instantiation.active_record;dur=0.24, halted_callback.action_controller;dur=0.01, process_action.action_controller;dur=6.74"
+								},
+								{
+									"key": "content-length",
+									"value": "78"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Error\",\n    \"errors\": [\n        \"You are not authorized to perform this action\"\n    ]\n}"
+						},
+						{
+							"name": "Successful content update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"updated!\",\r\n    \"body\": \"updated2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents/13",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"contents",
+										"13"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "access-token",
+									"value": "SOljKFeWTa8sheFTdraouw"
+								},
+								{
+									"key": "token-type",
+									"value": "Bearer"
+								},
+								{
+									"key": "client",
+									"value": "n5wOos6-jbWYDc40KHmWkw"
+								},
+								{
+									"key": "expiry",
+									"value": "1766928101"
+								},
+								{
+									"key": "uid",
+									"value": "ddsdsddd@sss.com"
+								},
+								{
+									"key": "authorization",
+									"value": "Bearer eyJhY2Nlc3MtdG9rZW4iOiJTT2xqS0ZlV1RhOHNoZUZUZHJhb3V3IiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6Im41d09vczYtamJXWURjNDBLSG1Xa3ciLCJleHBpcnkiOiIxNzY2OTI4MTAxIiwidWlkIjoiZGRzZHNkZGRAc3NzLmNvbSJ9"
+								},
+								{
+									"key": "set-cookie",
+									"value": "_session_id=z57kJ4XgmK%2ByTjxWe%2FOnW%2B%2FlY%2B54EiiCbogTdhSfvhVP3Y9082p5bRwjDghddmq5NNis2WsGIPL%2BxQ2jfoqBAPmdRRBriAG62X1nwR18biO3xwIbpGbFE8kD5P%2B3TSM7g1ImcNmr%2FiS5HwzDFl0aewpRcrJjbqTjq%2F1H8cs4XnMmjLW17ucVABhQFhCABUuxNLQCwoneJhOZWra192EFGFxl8ejPKsjW3ibfCFF3VtKKkcZ6ELN%2F26b1F06%2BsgS%2FnohlY27je1DNtYEUBrO5TI2Z5Q%3D%3D--ZDFI7JA4LnjEHqIE--W65bUA8wRr%2BIothdGiVhKA%3D%3D; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"1cfd2d9763f384cee48c6e942c814288\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "cf3ad4f8-afe3-437b-8d7a-abb736245874"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.019483"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=1.08, instantiation.active_record;dur=0.25, process_action.action_controller;dur=10.28"
+								},
+								{
+									"key": "content-length",
+									"value": "198"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Content updated successfully\",\n    \"data\": {\n        \"id\": 13,\n        \"type\": \"content\",\n        \"attributes\": {\n            \"title\": \"updated!\",\n            \"body\": \"updated2\",\n            \"createdAt\": \"2025-12-14T16:37:29Z\",\n            \"updatedAt\": \"2025-12-14T16:41:22Z\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Content not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"updated!\",\r\n    \"body\": \"updated2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents/99",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"contents",
+										"99"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "set-cookie",
+									"value": "_session_id=aOvYwdT%2BMyXQHhMAV8HmX6DD9qx4WRXI2E3QSL%2BUA4%2FDZyOG%2FyEWORZ9Phw%2FSSpruUSnJRZ9ihzb232205gyOziWEG7YS96pXmb9PiSSyAxEAHxPThduWdU5V4JbmeEJ52BPh5qhkg92iYPJiScK5L1bp4cQVNOpzqVbaTYr4igmTyUgUI4av91oj2MUWBMCBNLGs4LmABapZ8F86%2Bf3bhHhMOC6OmMyRo7TNtb%2BKF13aMWN%2BYf7xUv5cakQV4PaqrlzzbM3M58COxNudNuFcdFD%2Bg%3D%3D--k3gea7dLxz6Zpet3--juGFgImRklBtCT2%2FPTCLDg%3D%3D; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "3221dcd1-59c3-4a1a-a947-3dc55e3d9a0e"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.014281"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=0.74, instantiation.active_record;dur=0.12, halted_callback.action_controller;dur=0.01, process_action.action_controller;dur=5.76"
+								},
+								{
+									"key": "content-length",
+									"value": "50"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Error\",\n    \"errors\": [\n        \"Content not found\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhY2Nlc3MtdG9rZW4iOiJTT2xqS0ZlV1RhOHNoZUZUZHJhb3V3IiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6Im41d09vczYtamJXWURjNDBLSG1Xa3ciLCJleHBpcnkiOiIxNzY2OTI4MTAxIiwidWlkIjoiZGRzZHNkZGRAc3NzLmNvbSJ9",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents/11",
+							"protocol": "{{SCHEME}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"{{VERSION}}",
+								"contents",
+								"11"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete unauthorized",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents/4",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"contents",
+										"4"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "set-cookie",
+									"value": "_session_id=7pGavJkhcINA5qGsJsMkAtiHDi6dy5cCqt06EE9Eo6X8ZiMPUVw0WQbhg65g4G%2FzamIAXCyeyonw9VcsU5d4b4U8MJ0lcbSntfhnBXDi%2B1qkrvhRb41HF2G6XoXjA4nXvhUePvPU55q%2Bb1wy%2FCeC68qVeIpmsWojuhIkpouXRBTPZdRyGu%2F5ySAsvYHuSQrf1EQKcwYvxid%2BbclQTwpNpk8O%2Fal879JM8ezyCdV6%2FKkkxq76Gx3xTJMCbsZjIyineO9b9P7I6IeXPG5qrRIeXbHIyw%3D%3D--6KgZdAx1CyJRyjCj--UuWC3i9X5FGYdwU5AtQBNw%3D%3D; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "12d796f3-9e6d-4750-9c10-b3943d37fb90"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.018423"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=0.77, instantiation.active_record;dur=0.22, halted_callback.action_controller;dur=0.01, process_action.action_controller;dur=9.04"
+								},
+								{
+									"key": "content-length",
+									"value": "78"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Error\",\n    \"errors\": [\n        \"You are not authorized to perform this action\"\n    ]\n}"
+						},
+						{
+							"name": "delete successful",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents/11",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"contents",
+										"11"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "access-token",
+									"value": "SOljKFeWTa8sheFTdraouw"
+								},
+								{
+									"key": "token-type",
+									"value": "Bearer"
+								},
+								{
+									"key": "client",
+									"value": "n5wOos6-jbWYDc40KHmWkw"
+								},
+								{
+									"key": "expiry",
+									"value": "1766928101"
+								},
+								{
+									"key": "uid",
+									"value": "ddsdsddd@sss.com"
+								},
+								{
+									"key": "authorization",
+									"value": "Bearer eyJhY2Nlc3MtdG9rZW4iOiJTT2xqS0ZlV1RhOHNoZUZUZHJhb3V3IiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6Im41d09vczYtamJXWURjNDBLSG1Xa3ciLCJleHBpcnkiOiIxNzY2OTI4MTAxIiwidWlkIjoiZGRzZHNkZGRAc3NzLmNvbSJ9"
+								},
+								{
+									"key": "set-cookie",
+									"value": "_session_id=h3IiLNtk13WBzon4bUXEdKp2nOKeuta0sWOxWBNUwHfVvqT2Nr0VTOd2vguuue0%2FxELA9jMZyM1wI%2BIEEQhTa3pr3pvKnBGpao3O45fjPTU%2BAuJazhmwu9OBtvb0r0WjJPHpKEZOR4B7vNQZHdgKKEsIKbap5hMcrG0s%2FYBJdaGt9CSxxZiL3Wk5jrCpBOW58nkpVWjSoahhivwdfk8iUSV1w2DGiQdxHoVrTL2vyM2ZpZ9IV3Bjx1PbmwXeJacB%2BCIMBg5cJWEt8%2FirUfbhqKtCKA%3D%3D--Q0vOn28WUoJZNZnb--KYmUpqFF7DjXvkaiWgS9pg%3D%3D; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"ab4f96c6ed2c1f225b474cc93997e7d4\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "6b67fba8-9982-449a-9c18-f163bd77523e"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.026935"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=4.49, instantiation.active_record;dur=0.27, transaction.active_record;dur=3.73, process_action.action_controller;dur=16.24"
+								},
+								{
+									"key": "content-length",
+									"value": "52"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Content deleted successfully\",\n    \"data\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhY2Nlc3MtdG9rZW4iOiJTT2xqS0ZlV1RhOHNoZUZUZHJhb3V3IiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6Im41d09vczYtamJXWURjNDBLSG1Xa3ciLCJleHBpcnkiOiIxNzY2OTI4MTAxIiwidWlkIjoiZGRzZHNkZGRAc3NzLmNvbSJ9",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents/9",
+							"protocol": "{{SCHEME}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"{{VERSION}}",
+								"contents",
+								"9"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fetch content by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SCHEME}}://{{SERVER}}/{{VERSION}}/contents/9",
+									"protocol": "{{SCHEME}}",
+									"host": [
+										"{{SERVER}}"
+									],
+									"path": [
+										"{{VERSION}}",
+										"contents",
+										"9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "access-token",
+									"value": "SOljKFeWTa8sheFTdraouw"
+								},
+								{
+									"key": "token-type",
+									"value": "Bearer"
+								},
+								{
+									"key": "client",
+									"value": "n5wOos6-jbWYDc40KHmWkw"
+								},
+								{
+									"key": "expiry",
+									"value": "1766928101"
+								},
+								{
+									"key": "uid",
+									"value": "ddsdsddd@sss.com"
+								},
+								{
+									"key": "authorization",
+									"value": "Bearer eyJhY2Nlc3MtdG9rZW4iOiJTT2xqS0ZlV1RhOHNoZUZUZHJhb3V3IiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6Im41d09vczYtamJXWURjNDBLSG1Xa3ciLCJleHBpcnkiOiIxNzY2OTI4MTAxIiwidWlkIjoiZGRzZHNkZGRAc3NzLmNvbSJ9"
+								},
+								{
+									"key": "set-cookie",
+									"value": "_session_id=vO2h4FczrkTQcDhjxBIUaVeMH7Z6xPNyyct82t8wwFEkE4BcWAe17ijEcIwSJ%2FR4qiP33JFFVGTxy%2B4jnolqXGYlVZauiXd%2BdiiQM%2F73m4Me6uaa1niQNiepKgfU7glBfj4T7KtBpI7jihkDNfdvoNG6M63QTkh3vrTUFkj0uGMEv2tcB8SYY3dBdwq0PDh%2BHVDLnWeB7Gv%2BN7EkrlnydILbtbMm2vs%2FSjSyEQsHmLCSJ5%2FSPqCW7%2Fp%2BjyIUmzK7uY3Uklp1EHRIPktz8A1UDQ72WA%3D%3D--af%2Fcaw9R0jbFkABX--oMZkoxi%2BFmfslaoY%2Bw1wOA%3D%3D; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"4926c27d7545b2b8563a36c60fe9bb4b\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "d1f39e8f-d150-49b2-8835-c69533f721a2"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.020789"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=1.23, instantiation.active_record;dur=0.34, process_action.action_controller;dur=11.24"
+								},
+								{
+									"key": "content-length",
+									"value": "197"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Content fetched successfully\",\n    \"data\": {\n        \"id\": 9,\n        \"type\": \"content\",\n        \"attributes\": {\n            \"title\": \"updated!\",\n            \"body\": \"updated2\",\n            \"createdAt\": \"2025-12-14T13:22:01Z\",\n            \"updatedAt\": \"2025-12-14T16:41:16Z\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
