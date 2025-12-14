@@ -4,7 +4,14 @@
 module JsonResponse
   extend ActiveSupport::Concern
 
-  # Use this to render a success response
+  #
+  # Render a successful JSON response.
+  #
+  # @param [Hash] data the response data
+  # @param [String] message optional success message
+  # @param [Symbol,Integer] status HTTP status code
+  # @return [void]
+  #
   def render_json_success(data: {}, message: 'Success', status: :ok)
     render json: {
       status: 'success',
@@ -13,7 +20,13 @@ module JsonResponse
     }, status: status
   end
 
-  # Use this to render an error response
+  # Render an error JSON response.
+  #
+  # @param [Array<String>] errors list of error messages
+  # @param [String] message optional error message
+  # @param [Symbol,Integer] status HTTP status code
+  # @return [void]
+  #
   def render_json_error(errors: [], message: 'Error', status: :unprocessable_entity)
     render json: {
       status: 'error',
