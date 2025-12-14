@@ -68,7 +68,7 @@ module Api
           )
         else
           render_json_error(message: 'Content creation failed',
-                            status: :unprocessable_entity,
+                            status: :unprocessable_content,
                             errors: content.errors.full_messages)
         end
       end
@@ -87,7 +87,7 @@ module Api
           )
         else
           render_json_error(message: 'Content update failed',
-                            status: :unprocessable_entity,
+                            status: :unprocessable_content,
                             errors: @content.errors.full_messages)
         end
       end
