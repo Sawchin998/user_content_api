@@ -10,14 +10,14 @@ module JsonResponse
   # @param [Hash] data the response data
   # @param [String] message optional success message
   # @param [Symbol,Integer] status HTTP status code
+  # @param [Hash] optional metadata
   # @return [void]
   #
-  def render_json_success(data: {}, message: 'Success', status: :ok)
-    render json: {
-      status: 'success',
-      message: message,
-      data: data
-    }, status: status
+  def render_json_success(data: {}, message: 'Success', status: :ok, meta: {})
+    response = { message: message, data: data }
+    response.merge!(meta) if meta.present?
+
+    render json: response, status: status
   end
 
   # Render an error JSON response.
@@ -29,7 +29,6 @@ module JsonResponse
   #
   def render_json_error(errors: [], message: 'Error', status: :unprocessable_entity)
     render json: {
-      status: 'error',
       message: message,
       errors: errors
     }, status: status

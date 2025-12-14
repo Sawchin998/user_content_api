@@ -12,6 +12,7 @@ module Api
 
       include ContentResponse
 
+      # TODO: Replace custom with a pagination gem(custom pagination used here for simplicity)
       # GET /contents
       #
       # Fetches all Content records.
@@ -19,11 +20,23 @@ module Api
       #
       # @return [JSON] JSON:API formatted list of contents
       def index
-        contents = Content.all
+        page = (params[:page] || 1).to_i
+        per_page = (params[:per_page] || 20).to_i
+
+        contents = Content.order(created_at: :desc)
+                          .offset((page - 1) * per_page)
+                          .limit(per_page)
 
         render_json_success(
           data: contents.map { |c| format_content_response(c) },
-          message: 'Contents fetched successfully'
+          message: 'Contents fetched successfully',
+          meta: {
+            pagination: {
+              page: page,
+              per_page: per_page,
+              count: Content.count
+            }
+          }
         )
       end
 
@@ -114,7 +127,7 @@ module Api
       #
       # @return [ActionController::Parameters] permitted params for content
       def content_params
-        params.require(:content).permit(:title, :body)
+        params.require(:content).permit(:title, :body, :page, :per_page)
       end
     end
   end
