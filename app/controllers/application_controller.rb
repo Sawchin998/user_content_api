@@ -2,6 +2,7 @@
 
 # ApplicationController
 class ApplicationController < ActionController::API
+  include DeviseTokenAuth::Concerns::SetUserByToken
   include JsonResponse
 
   before_action :convert_camel_case_params
