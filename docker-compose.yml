@@ -17,5 +17,14 @@ services:
       POSTGRES_HOST_AUTH_METHOD: trust
     volumes:
       - postgres_data:/var/lib/postgresql/data
+  test:
+    build: .
+    image: user_content_api:latest
+    volumes:
+      - .:/app
+    command: bash -c "bundle exec rails db:create db:migrate && bundle exec rspec"
+    depends_on:
+      - db
+    profiles: [ "test" ]
 volumes:
   postgres_data:
