@@ -24,6 +24,7 @@ FROM ruby:3.2.2-bullseye AS app
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
       libpq5 \
       curl \
+      postgresql-client \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
