@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: Extract business logic to a services when controller grows
 module Api
   module V1
     # Controller for managing Content resources
