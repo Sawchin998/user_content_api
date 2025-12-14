@@ -45,5 +45,10 @@ module UserContentApi
 
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
+
+    # Keep authentication tokens stable across requests
+    config.after_initialize do
+      DeviseTokenAuth.change_headers_on_each_request = false
+    end
   end
 end
